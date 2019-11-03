@@ -66,6 +66,7 @@ header .logo {
 	font-size: 50px;
 }
 #products{
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -138,7 +139,7 @@ header .container {
 	justify-content: flex-start;
 }
 footer{
-	position: absolute;
+	position: relative;
 	height: auto;
 	width: 100%;
 	display: flex;
@@ -181,7 +182,7 @@ footer{
 		display: grid;
 	}
 	footer{
-		position: fixed;
+		position: relative;
 		left: 0;
 		bottom: 0;
 		width: 100%;

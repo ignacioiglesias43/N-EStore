@@ -143,4 +143,3 @@ const renderProduct = function(product) {
 renderProduct(getProduct(0))
 renderProduct(getProduct(1))
 renderProduct(getProduct(2))
-renderProduct(getProduct(3))
