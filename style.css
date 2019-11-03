@@ -65,6 +65,21 @@ header .logo {
 .logo i{
 	font-size: 50px;
 }
+#products{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 30px;
+}
+.name, .price{
+	font-size: 18px;
+	text-align: center;
+}
+.image{
+	border: 3px solid black;
+	align-self: center;
+	width: 300px;
+}
 .container-username {
 	padding-bottom: 30px;
 	align-items: center;
@@ -161,6 +176,9 @@ footer{
 	.form-body{
 		margin-top: auto;
 		margin-bottom: 100%;
+	}
+	#products{
+		display: grid;
 	}
 	footer{
 		position: fixed;
