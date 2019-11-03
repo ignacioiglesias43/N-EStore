@@ -65,7 +65,7 @@ header .logo {
 .logo i{
 	font-size: 50px;
 }
-#products{
+.product-container{
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -73,7 +73,7 @@ header .logo {
 	padding: 30px;
 }
 .name, .price{
-	font-size: 18px;
+	font-size: 20px;
 	text-align: center;
 }
 .image{
@@ -160,6 +160,14 @@ header .container {
 	display: flex;
 	justify-content: flex-start;
 }
+#main-products{
+	display: flex;
+	flex-direction: column;
+	flex-flow: wrap;
+}
+#main-products .name{
+	font-size: 10px;
+}
 footer{
 	position: relative;
 	height: auto;
@@ -200,7 +208,7 @@ footer{
 		margin-top: auto;
 		margin-bottom: 100%;
 	}
-	#products{
+	.product-container, #products, #main-products{
 		display: grid;
 	}
 	footer{

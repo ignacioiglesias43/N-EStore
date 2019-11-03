@@ -85,17 +85,17 @@ const getProduct = function(index){
         },
         {
           imgUrl:"https://http2.mlstatic.com/laptop-gamer-dell-g3-3779-intel-core-i7-8750h-16gb-1tb-ssd-128gb-pantalla-17-full-hd-nvidia-geforce-gtx-1050ti-4gb-D_NQ_NP_630765-MLM32008749861_082019-F.webp",
-          name:"LAPTOP GAMER DELL G3 3779 INTEL CORE I7 8750H 16GB 1TB SSD 128GB PANTALLA 17 FULL HD NVIDIA GEFORCE GTX 1050TI 4GB",
+          name:"LAPTOP GAMER DELL G3",
           price: 28799
         },
         {
-          imgUrl:"https://http2.mlstatic.com/D_NQ_NP_2X_797508-MLA31274883489_062019-F.webp",
+          imgUrl:"https://images-na.ssl-images-amazon.com/images/I/61mG8UT79zL._SX679_.jpg",
           name:"XIAOMI MI A2 LITE DUAL SIM 64 GB NEGRO",
           price: 3500
         },
         {
           imgUrl:"https://http2.mlstatic.com/consola-playstation-4-ps4-slim-1tb-control-dualshock-4-D_NQ_NP_740091-MLM31236354023_062019-F.webp",
-          name:"CONSOLA PLAYSTATION 4 PS4 SLIM 1TB CONTROL DUALSHOCK 4",
+          name:"PLAYSTATION 4 PS4 SLIM 1TB CONTROL DUALSHOCK 4",
           price: 9600
         },
         {
@@ -133,19 +133,22 @@ const createPrice = function(price){
     return productPrice
 }
 
-const renderProduct = function(product) {
-    const screen = document.querySelector('#products')
+const renderProduct = function(product, screen) {
+    const screen1 = document.querySelector(screen)
     const btnAddCar = document.createElement('button')
+    const screen2 = document.createElement('div')
+    screen1.appendChild(screen2)
+    screen2.classList.add('product-container')
     btnAddCar.innerHTML = '<i class="fas fa-cart-plus"></i>'
     btnAddCar.classList.add('btnAdd')
-	screen.appendChild(createImg(product.imgUrl))
-    screen.appendChild(createName(product.name))
-    screen.appendChild(createPrice(product.price))
-    screen.appendChild(btnAddCar)
+	  screen2.appendChild(createImg(product.imgUrl))
+    screen2.appendChild(createName(product.name))
+    screen2.appendChild(createPrice(product.price))
+    screen2.appendChild(btnAddCar)
 }
 
-const initProducts = function(cantidad){
+const initProducts = function(cantidad, screen){
     for(let i=0; i<cantidad; i++){
-        renderProduct(getProduct(i))
+        renderProduct(getProduct(i), screen)
     }
 }
