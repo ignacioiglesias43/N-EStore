@@ -85,7 +85,7 @@ const getProduct = function(index){
         },
         {
           imgUrl:"https://http2.mlstatic.com/laptop-gamer-dell-g3-3779-intel-core-i7-8750h-16gb-1tb-ssd-128gb-pantalla-17-full-hd-nvidia-geforce-gtx-1050ti-4gb-D_NQ_NP_630765-MLM32008749861_082019-F.webp",
-          name:"LAPTOP GAMER DELL G3",
+          name:"LAPTOP GAMER DELL G3 3779",
           price: 28799
         },
         {
