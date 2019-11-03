@@ -130,6 +130,28 @@ header .logo {
 .btn-lg{
 	height: 50px;
 }
+.btnAdd{
+	height: 50px;
+	width: 100px;
+	margin-bottom: 10px;
+	align-self: center;
+	background-color: #348d9d;
+	border: none;
+	font-size: 20px;
+}
+.btnAdd:hover{
+	/*background: rgba(0, 0, 0, 0.3);*/
+	background: #348d9d8c;
+}
+.btn-view{
+	text-align: center;
+	display: block;
+	margin: 10px;
+	font-size: 30px;
+    color: #000000;
+	text-decoration: none;
+	align-self: center;
+}
 header {
 	background-color: #348d9d;
 	padding: 10px 0;
@@ -150,7 +172,7 @@ footer{
 	font-size: 20px;
 	background-color: #348d9d;
 }
-.social{
+.social, .about{
 	font-size: 20px;
 	text-align: center;
 }

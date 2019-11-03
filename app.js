@@ -127,7 +127,7 @@ const createName = function (name) {
 }
 const createPrice = function(price){
     const productPrice = document.createElement('h2')
-    const text = document.createTextNode('$'+price)
+    const text = document.createTextNode('$'+price+' MXN')
     productPrice.appendChild(text)
     productPrice.classList.add('price')
     return productPrice
@@ -135,11 +135,17 @@ const createPrice = function(price){
 
 const renderProduct = function(product) {
     const screen = document.querySelector('#products')
+    const btnAddCar = document.createElement('button')
+    btnAddCar.innerHTML = '<i class="fas fa-cart-plus"></i>'
+    btnAddCar.classList.add('btnAdd')
 	screen.appendChild(createImg(product.imgUrl))
     screen.appendChild(createName(product.name))
     screen.appendChild(createPrice(product.price))
+    screen.appendChild(btnAddCar)
 }
 
-renderProduct(getProduct(0))
-renderProduct(getProduct(1))
-renderProduct(getProduct(2))
+const initProducts = function(cantidad){
+    for(let i=0; i<cantidad; i++){
+        renderProduct(getProduct(i))
+    }
+}
