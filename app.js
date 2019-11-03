@@ -23,9 +23,11 @@ class User {
 const showUsername = function(){
     const username = User.get()
     const inputUser = document.querySelector('.username')
+    const logoutOpt = document.querySelector('#logout')
     if(username != '' && username != null){
         inputUser.innerHTML = ''
         inputUser.innerHTML = username + '<i class="fas fa-user"></i>'
+        logoutOpt.style.display = 'block'
         inputUser.href = '#'
     }else{
         inputUser.innerHTML = 'Login<i class="fas fa-user"></i>'
@@ -33,7 +35,9 @@ const showUsername = function(){
     }
 }
 const logOut = function(){
-    User.remove()
+    const logoutOpt = document.querySelector('#logout')
+    localStorage.clear()
+    logoutOpt.style.display = 'none'
     window.location.href = 'index.html'
 }
 const init = function(){
