@@ -6,6 +6,11 @@ body {
 header{
 	width: 100%;
 }
+#products{
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
 .no-products {
  text-align: center;
  color: red;
