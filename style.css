@@ -6,6 +6,10 @@ body {
 header{
 	width: 100%;
 }
+.no-products {
+ text-align: center;
+ color: red;
+}
 a{
 	text-decoration: none;
 	color: white;
