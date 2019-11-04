@@ -1,9 +1,14 @@
 body {
+	font-family: Arial, Helvetica, sans-serif;
 	background-color: #d6d6d6;
 	margin: 0;
 }
 header{
 	width: 100%;
+}
+a{
+	text-decoration: none;
+	color: white;
 }
 .header{
 	box-sizing: border-box;
@@ -11,6 +16,9 @@ header{
 }
 #btn-menu{
 	display: none;
+}
+button{
+	color: white;
 }
 #logout{
 	display: none;
@@ -69,7 +77,7 @@ header .logo {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-around;
 	padding: 30px;
 }
 .name, .price{
@@ -206,8 +214,8 @@ header .container {
 }
 #main-products{
 	display: flex;
-	flex-direction: column;
 	flex-flow: wrap;
+	justify-content: space-around;
 }
 #main-products .name{
 	font-size: 15px;
@@ -247,12 +255,19 @@ footer{
 	#btn-menu:checked ~ .menu {
 		margin: 0;
 	}
+	.btnAdd{
+		justify-self: center;
+	}
 	.form-body{
 		margin-top: auto;
 		margin-bottom: 100%;
 	}
 	.product-container, #products, #main-products{
 		display: grid;
+		justify-content: center;
+	}
+	.image{
+		justify-self: center;
 	}
 	.product-added{
 		display: flex;
