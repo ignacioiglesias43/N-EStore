@@ -29,10 +29,20 @@
             </nav>
         </header>
         <main class="main">
-            <div class="productos">
-                
+            <div class="cart-products" id="cart-products">
+                <div class="info">
+                    <div class="product-added">
+
+                    </div>
+                </div>
             </div>
         </main>
+        <div class="total">
+            <h2 class="total-price"></h2>
+        </div>
+        <div class="btn-pay">
+            <button class="pagar">Pagar</button>
+        </div>
         <footer>
             <h1 class="logo">N&EStore<i class="fas fa-store"></i></h1>
             <div class="social">
@@ -43,6 +53,7 @@
         <script src="app.js"></script>
         <script>
             init()
+            initCart()
         </script>
     </body>
 </html>

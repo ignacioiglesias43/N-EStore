@@ -119,7 +119,7 @@ const createImg = function(url) {
 	return productImg
 }
 const createName = function (name) {
-	const productName = document.createElement('h1')
+	const productName = document.createElement('h2')
 	const text = document.createTextNode(name)
 	productName.appendChild(text)
 	productName.classList.add('name')
@@ -134,21 +134,80 @@ const createPrice = function(price){
 }
 
 const renderProduct = function(product, screen) {
-    const screen1 = document.querySelector(screen)
-    const btnAddCar = document.createElement('button')
-    const screen2 = document.createElement('div')
-    screen1.appendChild(screen2)
-    screen2.classList.add('product-container')
-    btnAddCar.innerHTML = '<i class="fas fa-cart-plus"></i>'
-    btnAddCar.classList.add('btnAdd')
-	  screen2.appendChild(createImg(product.imgUrl))
-    screen2.appendChild(createName(product.name))
-    screen2.appendChild(createPrice(product.price))
-    screen2.appendChild(btnAddCar)
+  const screen1 = document.querySelector(screen)
+  const screen2 = document.createElement('div')
+  screen1.appendChild(screen2)
+  screen2.classList.add('product-container')
+  screen2.appendChild(createImg(product.imgUrl))
+  screen2.appendChild(createName(product.name))
+  screen2.appendChild(createPrice(product.price))
+  screen2.appendChild(createBtn(product))
+}
+
+const createBtn = function(product){
+  const btnAddCar = document.createElement('button')
+  btnAddCar.classList.add('btnAdd')
+  btnAddCar.innerHTML = '<i class="fas fa-cart-plus"></i>'
+  btnAddCar.addEventListener('click', function(){
+    var arrayProducts = [] 
+    var lista = JSON.parse(localStorage.getItem('products'))
+    if(lista == null){
+      arrayProducts[0] = product
+    }else{
+      arrayProducts = lista
+      arrayProducts[lista.length] = product
+    }
+    localStorage.setItem('products', JSON.stringify(arrayProducts))
+    alert('Se añadió ' + product.name + ' al carrito.')
+  })
+  return btnAddCar
 }
 
 const initProducts = function(cantidad, screen){
     for(let i=0; i<cantidad; i++){
         renderProduct(getProduct(i), screen)
     }
+}
+
+const initCart = function(){
+  var products = JSON.parse(localStorage.getItem('products'))
+  const added = document.querySelector('.product-added')
+  const price = document.querySelector('.total-price')
+  const btnPay = document.querySelector('.pagar')
+  var precio = 0
+  if(products!=null){
+    for(let i=0; i<products.length; i++){
+      const container = document.createElement('div')
+      container.classList.add('container-imgcart')
+      const cont1 = document.createElement('div')
+      cont1.classList.add('container-info')
+      container.appendChild(createImg(products[i].imgUrl))
+      cont1.appendChild(createName(products[i].name))
+      cont1.appendChild(createPrice(products[i].price))
+      added.appendChild(container)
+      container.appendChild(cont1)
+      precio+= products[i].price
+    }
+    const pr = document.createTextNode('Total: $'+precio+' MXN')
+    price.appendChild(pr)
+  }else{
+    const noHay = document.createElement('h1')
+    noHay.classList.add('no-products')
+    noHay.appendChild(document.createTextNode('Aún no tienes productos añadidos en el carrito'))
+    added.appendChild(noHay)
+  }
+  btnPay.addEventListener('click', function(){
+    if(products!=null){
+      if(localStorage.getItem('username')!=null){
+        localStorage.removeItem('products')
+        alert('Compra realizada con éxito.')
+        window.location.href = 'index.html'
+      }else{
+        alert('Por favor, inicia sesión para comprar.')
+        window.location.href = 'login.html'
+      }
+    }else{
+      alert('No tienes ningún producto agregado al carrito.')
+    }
+  })
 }
