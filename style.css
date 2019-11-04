@@ -179,6 +179,12 @@ header .logo {
 	width: 70%;
 	height: 50px;
 	align-self: center;
+	border: none;
+	background-color: #348d9d;
+	font-style: bold;
+}
+.pagar:hover{
+	background: #348d9d8c;
 }
 .btn-pay{
 	display: flex;
